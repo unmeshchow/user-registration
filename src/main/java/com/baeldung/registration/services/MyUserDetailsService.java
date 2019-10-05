@@ -32,12 +32,12 @@ public class MyUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("No user found with email - " + email);
         }
 
-        final boolean enabled = true;
+        //final boolean enabled = true;
         final boolean accountNonExpired = true;
         final boolean credentialsNonExpired = true;
         final boolean accountNonLocked = true;
         return  new org.springframework.security.core.userdetails.User(user.getEmail(),
-                        user.getPassword().toLowerCase(), enabled, accountNonExpired,
+                        user.getPassword().toLowerCase(), user.isEnabled(), accountNonExpired,
                         credentialsNonExpired, accountNonLocked,
                         getAuthorities(Arrays.asList(user.getRole())));
     }

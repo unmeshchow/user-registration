@@ -60,7 +60,7 @@ public class UserServiceImplTest {
         when(userToUserCommand.convert(any(User.class))).thenReturn(userCommand);
         when(userRepository.save(user)).thenReturn(user);
 
-        assertThat(userService.saveUser(userCommand)).isNotNull();
+        assertThat(userService.registerUser(userCommand)).isNotNull();
         verify(userCommandToUser).convert(userCommand);
         verify(userToUserCommand).convert(user);
         verify(userRepository).save(user);

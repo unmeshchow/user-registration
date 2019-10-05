@@ -35,7 +35,7 @@ public class User {
     @Column(length = 60)
     private String password;
 
-    private boolean enabled;
+    private boolean enabled = false;
 
     private boolean isUsing2FA;
 
